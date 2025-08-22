@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BalancedBooks - Professional Accounting Services</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body
+    data-bs-spy="scroll"
+    data-bs-target="#navbarNav"
+    data-bs-offset="100"
+    tabindex="0"
+    style="position: relative"
+  >
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm">
+      <div class="container">
+        <!-- Navbar Brand -->
+        <div class="nav-brand d-flex align-items-center gap-2">
+          <!-- Moon SVG -->
+          <svg
+            class="moon-logo"
+            width="40"
+            height="40"
+            viewBox="0 0 48 48"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M32 24c0 8.837-7.163 16-16 16-1.934 0-3.79-0.356-5.505-1.004 6.144-1.99 10.5-8.642 10.5-16.996S16.639 9.994 10.495 8.004C12.21 7.356 14.066 7 16 7c8.837 0 16 7.163 16 16z"
+              fill="url(#crescentGradient)"
+            />
+            <defs>
+              <linearGradient
+                id="crescentGradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+              >
+                <stop
+                  offset="0%"
+                  style="stop-color: #ffd700; stop-opacity: 1"
+                />
+                <stop
+                  offset="100%"
+                  style="stop-color: #ffa500; stop-opacity: 1"
+                />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          <!-- Text Brand -->
+          <a
+            href="index.html"
+            class="text-decoration-none text-white fw-bold h5 mb-0"
+            >BalancedBooks</a
+          >
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tips.html">Tips & FAQs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="enquiry.html">Get Started</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero d-flex align-items-center text-white">
+      <div class="container text-center text-lg-start">
+        <h1 class="display-4">
+          Professional <strong>Accounting</strong><br />Tailored to You
+        </h1>
+        <p class="lead">
+          Chartered Accountant & Tax Agent providing personalized financial
+          solutions for businesses of all sizes.
+        </p>
+        <div
+          class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start"
+        >
+          <a href="#contact" class="btn btn-primary btn-lg"
+            >Free Consultation</a
+          >
+          <a href="#services" class="btn btn-outline-light btn-lg"
+            >Our Services</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Who I Am</h2>
+          <p class="section-subtitle">
+            Your trusted partner in financial success
+          </p>
+        </div>
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <p>
+              Chartered Accountant & Tax Agent with extensive experience in
+              business advisory and compliance.
+            </p>
+            <p>
+              I provide personalized solutions tailored to each client's unique
+              needs, from boutique businesses to large corporations.
+            </p>
+          </div>
+          <div class="col-lg-6 text-center">
+            <div class="p-4 border rounded shadow-sm bg-light">
+              <span class="fs-1">👩‍💼</span>
+              <h5 class="mt-2">Professional Credentials</h5>
+              <p>
+                <strong>Chartered Accountant</strong><br />Membership #:
+                CA-12345<br />
+                <strong>Tax Agent</strong><br />Registration #: TA-67890
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section (Accordion) -->
+    <section id="services" class="py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Our Services</h2>
+          <p class="section-subtitle">
+            Comprehensive accounting and tax solutions for your business success
+          </p>
+        </div>
+        <div class="accordion" id="servicesAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#serviceOne"
+              >
+                📊 Business Advisory
+              </button>
+            </h2>
+            <div
+              id="serviceOne"
+              class="accordion-collapse collapse show"
+              data-bs-parent="#servicesAccordion"
+            >
+              <div class="accordion-body">
+                Strategic planning and growth strategies for your business.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#serviceTwo"
+              >
+                💰 Tax Planning
+              </button>
+            </h2>
+            <div
+              id="serviceTwo"
+              class="accordion-collapse collapse"
+              data-bs-parent="#servicesAccordion"
+            >
+              <div class="accordion-body">
+                Optimization and compliance to save you money and avoid
+                penalties.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#serviceThree"
+              >
+                📋 Compliance
+              </button>
+            </h2>
+            <div
+              id="serviceThree"
+              class="accordion-collapse collapse"
+              data-bs-parent="#servicesAccordion"
+            >
+              <div class="accordion-body">
+                Regulatory requirements and reporting to keep your business
+                compliant.
+              </div>
+            </div>
+          </div>
+          <!-- Add more services as needed -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="why-choose-section py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Why Choose Balanced Books?</h2>
+          <p class="section-subtitle">
+            Professional expertise with a personalized approach
+          </p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card h-100 text-center shadow-sm">
+              <div class="card-body">
+                <div class="fs-1 mb-2">🎯</div>
+                <h5 class="card-title">Tailored Approach</h5>
+                <p class="card-text">Solutions that grow with your business.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 text-center shadow-sm">
+              <div class="card-body">
+                <div class="fs-1 mb-2">🏆</div>
+                <h5 class="card-title">Professional Credentials</h5>
+                <p class="card-text">
+                  CA-12345 & TA-67890, extensive experience.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 text-center shadow-sm">
+              <div class="card-body">
+                <div class="fs-1 mb-2">💻</div>
+                <h5 class="card-title">Modern Solutions</h5>
+                <p class="card-text">
+                  Efficient, accurate, and timely results using technology.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Reviews (Carousel) -->
+    <section class="reviews-section py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">What Our Clients Say</h2>
+          <p class="section-subtitle">
+            Real feedback from businesses we've helped succeed
+          </p>
+        </div>
+        <div
+          id="reviewsCarousel"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="card text-center p-4">
+                <div class="fs-3 mb-2">⭐⭐⭐⭐⭐</div>
+                <p>
+                  "Balanced Books transformed our financial management. Their
+                  expertise helped us save thousands in taxes and grow our
+                  business strategically."
+                </p>
+                <h6 class="mt-2">Sarah Mitchell, CEO, TechStart Solutions</h6>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card text-center p-4">
+                <div class="fs-3 mb-2">⭐⭐⭐⭐⭐</div>
+                <p>
+                  "Professional, responsive, and always available when we need
+                  advice. They truly understand small business challenges."
+                </p>
+                <h6 class="mt-2">Michael Chen, Owner, Chen's Restaurant</h6>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="card text-center p-4">
+                <div class="fs-3 mb-2">⭐⭐⭐⭐⭐</div>
+                <p>
+                  "Outstanding service and attention to detail. They've been our
+                  trusted advisors for over 5 years and we couldn't be happier."
+                </p>
+                <h6 class="mt-2">
+                  Emma Rodriguez, Director, Rodriguez Consulting
+                </h6>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#reviewsCarousel"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#reviewsCarousel"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section py-5 text-center">
+      <div class="container">
+        <h2>Ready to Get Started?</h2>
+        <p>Book your free 15-minute consultation today</p>
+        <a href="#contact" class="btn btn-primary btn-lg me-2"
+          >Book Consultation</a
+        >
+        <a href="#services" class="btn btn-outline-light btn-lg">Learn More</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-maroon text-white py-4">
+      <div class="container">
+        <div class="row g-4">
+          <!-- Branding -->
+          <div class="col-md-4">
+            <h5 class="text-gold">BalancedBooks</h5>
+            <p class="mb-0">
+              Professional accounting services for startups to established
+              enterprises.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="col-md-4">
+            <h5 class="text-gold">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="index.html" class="text-white text-decoration-none"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="about.html" class="text-white text-decoration-none"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a href="tips.html" class="text-white text-decoration-none"
+                  >Tips & FAQs</a
+                >
+              </li>
+              <li>
+                <a href="enquiry.html" class="text-white text-decoration-none"
+                  >Get Started</a
+                >
+              </li>
+              <li>
+                <a href="contact.html" class="text-white text-decoration-none"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="col-md-4" id="contact">
+            <h5 class="text-gold">Contact</h5>
+            <ul class="list-unstyled mb-0">
+              <li>📧 info@balancedbooks.com</li>
+              <li>📞 +61 400 123 456</li>
+              <li>📍 Brisbane, Australia</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom -->
+        <div class="text-center mt-3 small">
+          &copy; 2025 BalancedBooks. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const navbar = document.querySelector(".navbar");
+        const navbarCollapse = document.getElementById("navbarNav");
+
+        // Auto-collapse mobile nav when clicking a link
+        if (navbarCollapse) {
+          navbarCollapse.querySelectorAll(".nav-link").forEach(function (link) {
+            link.addEventListener("click", function () {
+              const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+              if (
+                bsCollapse &&
+                window.getComputedStyle(navbarCollapse).display !== "none"
+              ) {
+                bsCollapse.hide();
+              }
+            });
+          });
+        }
+
+        // Smooth scrolling with navbar offset
+        const OFFSET = navbar ? navbar.offsetHeight : 80;
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            const targetId = this.getAttribute("href");
+            if (targetId.length > 1) {
+              const target = document.querySelector(targetId);
+              if (target) {
+                e.preventDefault();
+                const y =
+                  target.getBoundingClientRect().top +
+                  window.pageYOffset -
+                  OFFSET;
+                window.scrollTo({ top: y, behavior: "smooth" });
+              }
+            }
+          });
+        });
+
+        // Navbar shrink on scroll
+        function onScroll() {
+          if (!navbar) return;
+          if (window.scrollY > 10) {
+            navbar.classList.add("shadow-sm");
+          } else {
+            navbar.classList.remove("shadow-sm");
+          }
+        }
+        window.addEventListener("scroll", onScroll);
+        onScroll();
+
+        // Reveal on scroll
+        const revealItems = document.querySelectorAll(".reveal");
+        if ("IntersectionObserver" in window && revealItems.length) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("visible");
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.12 }
+          );
+          revealItems.forEach((el) => observer.observe(el));
+        } else {
+          revealItems.forEach((el) => el.classList.add("visible"));
+        }
+
+        // Back to top button
+        const backToTop = document.createElement("button");
+        backToTop.className = "btn btn-primary back-to-top";
+        backToTop.innerText = "↑";
+        backToTop.setAttribute("aria-label", "Back to top");
+        document.body.appendChild(backToTop);
+        backToTop.addEventListener("click", () =>
+          window.scrollTo({ top: 0, behavior: "smooth" })
+        );
+        function toggleBackToTop() {
+          if (window.scrollY > window.innerHeight / 2) {
+            backToTop.classList.add("show");
+          } else {
+            backToTop.classList.remove("show");
+          }
+        }
+        window.addEventListener("scroll", toggleBackToTop);
+        toggleBackToTop();
+
+        // Dynamic document title based on visible section
+        const brandName = "BalancedBooks";
+        const sectionTitleMap = new Map([
+          ["home", "Home"],
+          ["services", "Services"],
+          ["contact", "Contact"],
+        ]);
+        let currentTitleKey = null;
+        const titleSections = [
+          document.getElementById("home"),
+          document.getElementById("services"),
+          document.getElementById("contact"),
+        ].filter(Boolean);
+        if ("IntersectionObserver" in window && titleSections.length) {
+          const titleObserver = new IntersectionObserver(
+            (entries) => {
+              let best = null;
+              entries.forEach((e) => {
+                if (e.isIntersecting) {
+                  if (!best || e.intersectionRatio > best.intersectionRatio) {
+                    best = e;
+                  }
+                }
+              });
+              if (best) {
+                const id = best.target.id;
+                const label = sectionTitleMap.get(id);
+                if (label && currentTitleKey !== id) {
+                  currentTitleKey = id;
+                  document.title = `${label} — ${brandName}`;
+                  // Update active nav link
+                  document
+                    .querySelectorAll(".navbar-nav .nav-link")
+                    .forEach((l) => l.classList.remove("active"));
+                  const activeLink = document.querySelector(
+                    `.navbar-nav .nav-link[href='#${id}']`
+                  );
+                  if (activeLink) activeLink.classList.add("active");
+                }
+              }
+            },
+            { threshold: [0.5, 0.75] }
+          );
+          titleSections.forEach((s) => titleObserver.observe(s));
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "nibclonef",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Frontend with prepared Node.js backend scaffold for future server-side processing",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "mock:post": "node scripts/mock_post.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

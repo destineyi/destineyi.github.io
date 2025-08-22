@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get Started - BalancedBooks</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <span class="fw-bold">BalancedBooks</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tips.html">Tips & FAQs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="enquiry.html">Get Started</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container" style="margin-top: 100px">
+      <h1 class="mb-4">Get Started</h1>
+      <form id="enquiryForm" class="row g-3" novalidate>
+        <div class="col-md-6">
+          <label for="fullName" class="form-label">Full Name</label>
+          <input
+            id="fullName"
+            name="fullName"
+            type="text"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please enter your full name.</div>
+        </div>
+        <div class="col-md-6">
+          <label for="email" class="form-label">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Enter a valid email address.</div>
+        </div>
+        <div class="col-12">
+          <label for="message" class="form-label">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            class="form-control"
+            rows="5"
+            minlength="10"
+            required
+          ></textarea>
+          <div class="invalid-feedback">
+            Message should be at least 10 characters.
+          </div>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </main>
+
+    <footer class="bg-maroon text-white py-4 mt-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <h5 class="text-gold">BalancedBooks</h5>
+            <p class="mb-0">Professional accounting services.</p>
+          </div>
+          <div class="col-md-4">
+            <h5 class="text-gold">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="index.html" class="text-white text-decoration-none"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="tips.html" class="text-white text-decoration-none"
+                  >Tips & FAQs</a
+                >
+              </li>
+              <li>
+                <a href="enquiry.html" class="text-white text-decoration-none"
+                  >Get Started</a
+                >
+              </li>
+              <li>
+                <a href="contact.html" class="text-white text-decoration-none"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4" id="contact">
+            <h5 class="text-gold">Contact</h5>
+            <ul class="list-unstyled mb-0">
+              <li>📧 info@balancedbooks.com</li>
+              <li>📞 +61 400 123 456</li>
+              <li>📍 Brisbane, Australia</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("enquiryForm");
+        if (!form) return;
+        const nameInput = document.getElementById("fullName");
+        const emailInput = document.getElementById("email");
+        const messageInput = document.getElementById("message");
+
+        // Helper: domain name validation per RFC-ish constraints
+        function isValidDomain(domain) {
+          if (!domain || domain.length > 253) return false;
+          const labels = domain.split(".");
+          if (labels.length < 2) return false;
+          // Validate each label
+          const labelRegex = /^[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?$/;
+          for (let i = 0; i < labels.length; i++) {
+            const label = labels[i];
+            if (label.length === 0 || label.length > 63) return false;
+            if (!labelRegex.test(label)) return false;
+          }
+          // TLD letters only, 2-63
+          const tld = labels[labels.length - 1];
+          if (!/^[A-Za-z]{2,63}$/.test(tld)) return false;
+          return true;
+        }
+
+        function setInvalid(input, message) {
+          input.classList.remove("is-valid");
+          input.classList.add("is-invalid");
+          const feedback =
+            input.parentElement.querySelector(".invalid-feedback");
+          if (feedback && message) feedback.textContent = message;
+        }
+
+        function setValid(input) {
+          input.classList.remove("is-invalid");
+          input.classList.add("is-valid");
+        }
+
+        function validateName() {
+          const value = nameInput.value.trim();
+          const lengthOk = value.length >= 3 && value.length <= 30;
+          const patternOk = /^[A-Za-z]+(?: [A-Za-z]+)*$/.test(value);
+          if (!lengthOk || !patternOk) {
+            setInvalid(
+              nameInput,
+              "Name must be 3-30 letters, words separated by single spaces."
+            );
+            return false;
+          }
+          setValid(nameInput);
+          return true;
+        }
+
+        function validateEmail() {
+          const value = emailInput.value.trim();
+          const parts = value.split("@");
+          if (parts.length !== 2) {
+            setInvalid(emailInput, "Enter a valid email address.");
+            return false;
+          }
+          const [local, domain] = parts;
+          // Local part basic checks
+          if (
+            !local ||
+            local.length > 64 ||
+            /\s/.test(local) ||
+            local.startsWith(".") ||
+            local.endsWith(".") ||
+            local.includes("..")
+          ) {
+            setInvalid(emailInput, "Enter a valid email address.");
+            return false;
+          }
+          // Domain validation
+          if (!isValidDomain(domain)) {
+            setInvalid(emailInput, "Enter a valid email domain.");
+            return false;
+          }
+          // Extra guard: catch common TLD typos like .con
+          const tld = domain.split(".").pop()?.toLowerCase();
+          const commonTldTypos = new Set(["con", "cpm", "cim", "vom", "comm"]);
+          if (tld && commonTldTypos.has(tld)) {
+            setInvalid(
+              emailInput,
+              "Email domain looks wrong (e.g., '.con'). Did you mean '.com'?"
+            );
+            return false;
+          }
+
+          // Extra guard: catch common provider domain typos
+          const commonProviderDomains = [
+            "gmail.com",
+            "yahoo.com",
+            "outlook.com",
+            "hotmail.com",
+            "icloud.com",
+            "live.com",
+          ];
+          const knownTyposToSuggestion = new Map([
+            ["gmai.com", "gmail.com"],
+            ["gmial.com", "gmail.com"],
+            ["gmal.com", "gmail.com"],
+            ["gnail.com", "gmail.com"],
+            ["yahho.com", "yahoo.com"],
+            ["yaho.com", "yahoo.com"],
+            ["outlok.com", "outlook.com"],
+            ["hotmial.com", "hotmail.com"],
+            ["iclod.com", "icloud.com"],
+            ["iclud.com", "icloud.com"],
+          ]);
+
+          const lowerDomain = domain.toLowerCase();
+          if (knownTyposToSuggestion.has(lowerDomain)) {
+            const suggestion = knownTyposToSuggestion.get(lowerDomain);
+            setInvalid(
+              emailInput,
+              `Email domain looks wrong ('${lowerDomain}'). Did you mean '${suggestion}'?`
+            );
+            return false;
+          }
+
+          // Heuristic: distance-1 from common providers
+          function editDistanceOne(a, b) {
+            if (Math.abs(a.length - b.length) > 1) return false;
+            let i = 0,
+              j = 0,
+              diffs = 0;
+            while (i < a.length && j < b.length) {
+              if (a[i] === b[j]) {
+                i++;
+                j++;
+              } else {
+                if (diffs === 1) return false;
+                diffs++;
+                if (a.length > b.length) i++;
+                else if (a.length < b.length) j++;
+                else {
+                  i++;
+                  j++;
+                }
+              }
+            }
+            if (i < a.length || j < b.length) diffs++;
+            return diffs <= 1;
+          }
+          for (const provider of commonProviderDomains) {
+            if (editDistanceOne(lowerDomain, provider)) {
+              setInvalid(
+                emailInput,
+                `Email domain looks wrong ('${lowerDomain}'). Did you mean '${provider}'?`
+              );
+              return false;
+            }
+          }
+          setValid(emailInput);
+          return true;
+        }
+
+        function validateMessage() {
+          const value = messageInput.value.trim();
+          if (value.length < 10) {
+            setInvalid(
+              messageInput,
+              "Message should be at least 10 characters."
+            );
+            return false;
+          }
+          setValid(messageInput);
+          return true;
+        }
+
+        nameInput.addEventListener("input", validateName);
+        emailInput.addEventListener("input", validateEmail);
+        messageInput.addEventListener("input", validateMessage);
+
+        form.addEventListener("submit", function (e) {
+          const results = [
+            { ok: validateName(), msg: "Full Name is required." },
+            { ok: validateEmail(), msg: "A valid Email is required." },
+            {
+              ok: validateMessage(),
+              msg: "Message must be at least 10 characters.",
+            },
+          ];
+
+          const isValid = results.every((r) => r.ok);
+          if (!isValid) {
+            e.preventDefault();
+            e.stopPropagation();
+            const messages = results
+              .filter((r) => !r.ok)
+              .map((r) => `• ${r.msg}`);
+            alert(
+              `Please fix the following before submitting:\n\n${messages.join(
+                "\n"
+              )}`
+            );
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
